@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tracking System</title>
+
+    <script>
+function myFunction() {
+<!--    document.getElementById("button1").style.color = "red";-->
+    {%for i in status%}
+    button1={{i.button1}}
+    button2={{i.button2}}
+    button3={{i.button3}}
+    button4={{i.button4}}
+    {% endfor %}
+
+
+    if(button1=="1")
+        document.getElementById("button1").style.color = "red";
+    if(button2=='1')
+        document.getElementById("button2").style.color = "red";
+    if(button3==1)
+        document.getElementById("button3").style.color = "red";
+    if(button4==1)
+        document.getElementById("button4").style.color = "red";
+}
+
+function func(button){
+    currentvalue = document.getElementById(button).value;
+  if(currentvalue == "Off"){
+    document.getElementById(button).value="On";
+    document.getElementById(button).style.color = "green";
+  }else{
+    document.getElementById(button).value="Off";
+    document.getElementById(button).style.color = "blue";
+  }
+}
+</script>
+</head>
+
+<body onload="myFunction()">
+<h1>Received Data:</h1>
+<form action="delete">
+
+ <input type="submit" value="Delete" >
+</form>
+<br>
+<button id="button1" value="On" onclick="func('button1')";>Button 1</button>&nbsp;
+<button id="button2" value="On" onclick="func('button2')";>Button 2</button>&nbsp;
+<button id="button3" value="On" onclick="func('button3')";>Button 3</button>&nbsp;
+<button id="button4" value="On" onclick="func('button4')";>Button 4</button>
+<br><br>
+
+<table style="width:100%" border="1px">
+    <th>Latitude</th>
+    <th>Longitude</th>
+    {% for i in abc %}
+    <tr>
+        <td>{{i.data1}}</td>
+        <td>{{i.data2}}</td>
+    </tr>
+    {%endfor%}
+</table>
+
+<!--Latitude : {{i.data1}}    &nbsp;&nbsp;&nbsp;&nbsp; Longitude : {{i.data2}}-->
+<br>
+
+
+<!--<h1>{{name}}</h1>-->
+
+<!--<form action="add/" method="post">-->
+<!--    {% csrf_token %}-->
+<!--Enter the number: <input type="text" name="num1">-->
+<!--    <input type="submit">-->
+<!--</form>-->
+
+
+<!--<h3>Received Data : {{book}}</h3>-->
+
+</body>
+</html>
