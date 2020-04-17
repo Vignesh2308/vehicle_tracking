@@ -21,11 +21,8 @@ class Data(models.Model):
     data2 = models.CharField(max_length=100, default=True)
 
 
-class Button(models.Model):
+class Buttons(models.Model):
     def __str__(self):
-        return self.button1 + ":" + self.button2 + ":" + self.button3 + ":" + self.button4
+        return str(self.button1)
 
-    button1 = models.CharField(max_length=10)
-    button2 = models.CharField(max_length=10)
-    button3 = models.CharField(max_length=10)
-    button4 = models.CharField(max_length=10)
+    button1 = models.BooleanField(default=False)
